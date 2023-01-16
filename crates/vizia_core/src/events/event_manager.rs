@@ -365,7 +365,7 @@ fn internal_state_updates(context: &mut Context, window_event: &WindowEvent, met
                 for entity in TreeIterator::full(tree).skip(1) {
                     if let Some(element_name) = views.get(&entity).and_then(|view| view.element()) {
                         println!(
-                            "{}{} {} {:?} display={:?} bounds={} clip={}",
+                            "{}{} {} {:?} display={:?} bounds={} clip={} classes={:?} id={:?}",
                             indents(entity),
                             entity,
                             element_name,
@@ -373,6 +373,8 @@ fn internal_state_updates(context: &mut Context, window_event: &WindowEvent, met
                             cache.get_display(entity),
                             cache.get_bounds(entity),
                             cache.get_clip_region(entity),
+                            context.style.classes.get(entity),
+                            context.style.ids.get(entity),
                         );
                     } else if let Some(binding_name) =
                         context.bindings.get(&entity).and_then(|binding| binding.name())

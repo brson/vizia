@@ -406,7 +406,7 @@ impl View for TickKnob {
         let mut paint = Paint::color(background_color);
         paint.set_line_width(tick_width);
         paint.set_line_cap(LineCap::Round);
-        canvas.fill_path(&mut path, &paint);
+        //canvas.fill_path(&mut path, &paint);
 
         // Draw the tick
         let mut path = Path::new();
